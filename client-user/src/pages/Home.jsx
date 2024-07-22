@@ -1,9 +1,13 @@
+import CoomingSoon from "../components/CoomingSoon";
+import NowPlaying from "../components/NowPlaying";
+
 export default function Home() {
     
     return(
         <main
-        className="flex min-h-screen flex-col items-center justify-between p-24">
-            <h1>Home</h1>
+        className="flex min-h-screen flex-col justify-between bg-zinc-300">
+            <NowPlaying/>
+            <CoomingSoon/>
         </main>
     );
 }

@@ -1,7 +1,9 @@
 export default function Footer() {
   return (
-    <footer>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <footer className="h-[60px] max-w-full bg-slate-900 flex justify-center items-center">
+      <section className="text-white">
+        <p>MyTix Cinema @2024</p>
+      </section>
     </footer>
   );
 }
