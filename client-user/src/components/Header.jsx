@@ -3,7 +3,7 @@ import logo from "/logo.png";
 export default function Header() {
   return (
     <header 
-    className="bg-slate-900 p-4 sticky top-0 flex justify-between items-center z-50">
+    className="bg-slate-800 p-4 sticky top-0 flex justify-between items-center z-50">
       {/* logos */}
       <img src={logo} className="h-20 w-40" />
 

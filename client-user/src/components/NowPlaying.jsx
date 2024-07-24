@@ -59,6 +59,7 @@ export default function NowPlaying() {
       genre: "Fantasy",
     },
   ];
+  
   return (
     <main className="flex min-h-screen flex-col p-6">
       {/* title */}
@@ -67,7 +68,7 @@ export default function NowPlaying() {
       </article>
 
       {/* search bar */}
-      <article className="bg-red-500 text-white flex gap-5 w-full justify-center items-center py-2 sticky top-44">
+      <article className="bg-red-500 text-white flex gap-5 w-full justify-center items-center py-2 sticky top-44 rounded-b-3xl">
         {/* search */}
         <section className="flex gap-5 items-center">
           <button>Search</button>
@@ -104,12 +105,12 @@ export default function NowPlaying() {
       flex gap-5 flex-wrap justify-around items-center flex-col"
       >
         {/* only movie without button show more or less */}
-        <div className="flex gap-5 flex-wrap justify-around items-center w-full">
+        <div className="flex gap-5 flex-wrap justify-around items-center w-full ">
           {/* movies details container */}
           {moviesExample.slice(0, showCount).map((movie) => (
             <section
               key={movie.title}
-              className="flex flex-col w-1/5 items-center p-2 bg-yellow-300"
+              className="flex flex-col w-1/5 items-center p-2 bg-yellow-300 rounded-b-3xl"
             >
               {/* movie banner */}
               <img src={bannerExample} alt={movie.title} className="" />

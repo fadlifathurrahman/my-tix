@@ -62,12 +62,12 @@ export default function CoomingSoon() {
   return (
     <main className="flex min-h-screen flex-col p-6">
       {/* title */}
-      <article className="p-4 bg-red-600 text-white sticky top-28 z-10">
+      <article className="p-4 bg-stone-700 text-white sticky top-28 z-10">
         <h1 className="text-3xl font-bold ">Cooming Soon</h1>
       </article>
 
       {/* search bar */}
-      <article className="bg-red-500 text-white flex gap-5 w-full justify-center items-center py-2 sticky top-44 z-10">
+      <article className="bg-stone-500 text-white flex gap-5 w-full justify-center items-center py-2 sticky top-44 z-10 rounded-b-3xl">
         {/* search */}
         <section className="flex gap-5 items-center">
           <button>Search</button>
@@ -84,7 +84,7 @@ export default function CoomingSoon() {
           <select
             name="genre"
             id=""
-            className="bg-red-600 text-white py-1 px-3"
+            className="bg-stone-600 text-white py-1 px-3"
           >
             <option value="genre">All</option>
             {moviesExample
@@ -109,7 +109,7 @@ export default function CoomingSoon() {
           {moviesExample.slice(0, showCount).map((movie) => (
             <section
               key={movie.title}
-              className="flex flex-col w-1/5 items-center p-2 bg-yellow-300"
+              className="flex flex-col w-1/5 items-center p-2 bg-gray-400 rounded-b-3xl"
             >
               {/* movie banner */}
               <img src={bannerExample} alt={movie.title} className="" />
