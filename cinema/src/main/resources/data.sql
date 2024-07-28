@@ -5,24 +5,24 @@ IGNORE INTO studio VALUES
     (3, 'Studio 3');
 
 INSERT
-IGNORE INTO genre VALUES
-('1', 'Drama'),
-('2', 'Comedy'),
-('3', 'Horror'),
-('4', 'Adventure'),
-('5', 'Action'),
-('6', 'Animation'),
-('7', 'Documentary'),
-('8', 'Family'),
-('9', 'Friendship'),
-('10', 'Romance'),
-('11', 'Fantasy'),
-('12', 'Science fiction'),
-('13', 'Thriller'),
-('14', 'Mystery'),
-('15', 'Biography'),
-('16', 'Musical'),
-('17', 'Religious');
+IGNORE INTO `genre` (`genre_name`, `created_at`, `updated_at`, `deleted_at`) VALUES
+    ('Drama', NOW(), NOW(), NULL),
+    ('Comedy', NOW(), NOW(), NULL),
+    ('Horror', NOW(), NOW(), NULL),
+    ('Adventure', NOW(), NOW(), NULL),
+    ('Action', NOW(), NOW(), NULL),
+    ('Animation', NOW(), NOW(), NULL),
+    ('Documentary', NOW(), NOW(), NULL),
+    ('Family', NOW(), NOW(), NULL),
+    ('Friendship', NOW(), NOW(), NULL),
+    ('Romance', NOW(), NOW(), NULL),
+    ('Fantasy', NOW(), NOW(), NULL),
+    ('Science fiction', NOW(), NOW(), NULL),
+    ('Thriller', NOW(), NOW(), NULL),
+    ('Mystery', NOW(), NOW(), NULL),
+    ('Biography', NOW(), NOW(), NULL),
+    ('Musical', NOW(), NOW(), NULL),
+    ('Religious', NOW(), NOW(), NULL);
 
 INSERT IGNORE INTO movie (id, title, poster_url, synopsis, director, duration, trailer_url, casts, producer) VALUES
 ('1', 'Surga di Bawah Langit',
