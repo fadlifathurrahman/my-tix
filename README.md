@@ -1,6 +1,7 @@
-# Data Dlow Diagram
+# Data Flow Diagram
 
-![Diagram Entitas Relasi](https://github.com/fadlifathurrahman/mytix-cinema/main/erd.png)
+![Diagram Entitas Relasi](![image](https://github.com/user-attachments/assets/fab1cad8-68d5-4ee8-85f6-e7d3dff6ba2d)
+)
 
 Diagram di atas menggambarkan hubungan antar entitas dalam aplikasi bioskop. Entitas utama meliputi:
 
