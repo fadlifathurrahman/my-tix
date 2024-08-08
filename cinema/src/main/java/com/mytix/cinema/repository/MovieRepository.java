@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import com.mytix.cinema.model.Movie;
 
 public interface MovieRepository 
-extends JpaRepository<Movie, Long>{
+extends JpaRepository<Movie, Integer>{
 
     @Query("select m from Movie m where m.id in (select s.movie.id from Schedule s)")
     List<Movie> findMovieBySchedule();

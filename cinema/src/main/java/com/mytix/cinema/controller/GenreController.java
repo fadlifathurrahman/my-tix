@@ -1,6 +1,7 @@
 package com.mytix.cinema.controller;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -30,40 +31,44 @@ public class GenreController {
     }
 
     @GetMapping("/find-all")
-    public Object findAll() {
+    public ResponseEntity<List<Genre>> findAll() {
 
-        return genreRepository.findAll();
+        List<Genre> genres = genreRepository.findAll();
+        return ResponseEntity.ok(genres);
     }
 
     @GetMapping("/{id}")
-    public Object getById(@PathVariable("id") Long id) {
+    public ResponseEntity<Genre> getById(@PathVariable Integer id) {
 
         Genre genre = genreRepository.findById(id).orElse(null);
         if (genre == null) {
-            return ResponseEntity.badRequest().body("Id invalid");
+            return ResponseEntity.badRequest().body(null);
         }
-        return genreRepository.findById(id).orElse(null);
+        return ResponseEntity.ok(genre);
     }
 
     @PostMapping("/add-genre")
-    public Object create(@RequestBody GenreDto genreDto) {
+    public ResponseEntity<String> create(@RequestBody GenreDto genreDto) {
 
         if (genreRepository.findByGenreName(genreDto.getGenreName()).isPresent()) {
             return ResponseEntity.badRequest().body("Genre already exists");
         }
-
         Genre genre = new Genre();
         genre.setGenreName(genreDto.getGenreName());
-        return genreRepository.save(genre);
+        Genre savedGenre = genreRepository.save(genre);
+        return ResponseEntity.ok("Genre " + savedGenre.getGenreName() + " has been successfully added");
     }
 
     @PutMapping("edit-genre/{id}")
-    public Object update(@PathVariable("id") Long id,
+    public ResponseEntity<String> update(@PathVariable Integer id,
             @RequestBody GenreDto genreDto) {
 
         Genre genre = genreRepository.findById(id).orElse(null);
         if (genre == null) {
             return ResponseEntity.badRequest().body("Id invalid");
+        }
+        if (genre.getDeletedAt() != null) {
+            return ResponseEntity.badRequest().body("Genre has been deleted, cannot be edited");
         }
         if (genreRepository.findByGenreName(genreDto.getGenreName()).isPresent()) {
             return ResponseEntity.badRequest().body("Genre already exists");
@@ -74,12 +79,15 @@ public class GenreController {
     }
 
     @DeleteMapping("delete-genre/{id}")
-    public Object delete(@PathVariable("id") Long id) {
+    public ResponseEntity<String> delete(@PathVariable Integer id) {
 
-        Genre genre = genreRepository.findById(id).orElse(null);
-        if (genre == null || genre.getDeletedAt() != null) {
+        Genre genre = genreRepository.findById(id)
+                .filter(g -> g.getDeletedAt() == null)
+                .orElse(null);
+        if (genre == null) {
             return ResponseEntity.badRequest().body("Id invalid");
         }
+        genre.setGenreName("deleted_genre");
         genre.setDeletedAt(LocalDateTime.now());
         genreRepository.save(genre);
         return ResponseEntity.ok("Genre has been successfully deleted");

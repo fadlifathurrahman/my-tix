@@ -62,12 +62,12 @@ export default function CoomingSoon() {
   return (
     <main className="flex min-h-screen flex-col p-6">
       {/* title */}
-      <article className="p-4 bg-stone-700 text-white sticky top-28 z-10">
+      <article className="p-2 bg-stone-700 text-white sticky top-28 z-10">
         <h1 className="text-3xl font-bold ">Cooming Soon</h1>
       </article>
 
       {/* search bar */}
-      <article className="bg-stone-500 text-white flex gap-5 w-full justify-center items-center py-2 sticky top-44 z-10 rounded-b-3xl">
+      <article className="bg-stone-500 text-white flex gap-5 w-full justify-center items-center py-2 sticky top-40 z-10 rounded-b-3xl">
         {/* search */}
         <section className="flex gap-5 items-center">
           <button>Search</button>

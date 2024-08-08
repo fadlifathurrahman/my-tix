@@ -4,25 +4,33 @@ IGNORE INTO studio VALUES
     (2, 'Studio 2'),
     (3, 'Studio 3');
 
+INSERT 
+IGNORE INTO rating (`rating`, `description`) VALUES
+    ('G', 'General audiences. All ages admitted.'),
+    ('PG', 'Parental guidance suggested. Some material may not be suitable for children.'),
+    ('PG-13', 'Parents strongly cautioned. Some material may be inappropriate for children under 13.'),
+    ('R', 'Restricted. Under 17 requires accompanying parent or adult guardian.'),
+    ('NC-17', 'No one 17 and under admitted.');
+
 INSERT
-IGNORE INTO `genre` (`genre_name`, `created_at`, `updated_at`, `deleted_at`) VALUES
-    ('Drama', NOW(), NOW(), NULL),
-    ('Comedy', NOW(), NOW(), NULL),
-    ('Horror', NOW(), NOW(), NULL),
-    ('Adventure', NOW(), NOW(), NULL),
-    ('Action', NOW(), NOW(), NULL),
-    ('Animation', NOW(), NOW(), NULL),
-    ('Documentary', NOW(), NOW(), NULL),
-    ('Family', NOW(), NOW(), NULL),
-    ('Friendship', NOW(), NOW(), NULL),
-    ('Romance', NOW(), NOW(), NULL),
-    ('Fantasy', NOW(), NOW(), NULL),
-    ('Science fiction', NOW(), NOW(), NULL),
-    ('Thriller', NOW(), NOW(), NULL),
-    ('Mystery', NOW(), NOW(), NULL),
-    ('Biography', NOW(), NOW(), NULL),
-    ('Musical', NOW(), NOW(), NULL),
-    ('Religious', NOW(), NOW(), NULL);
+IGNORE INTO `genre` (`genre_name`) VALUES
+    ('Drama'),
+    ('Comedy'),
+    ('Horror'),
+    ('Adventure'),
+    ('Action'),
+    ('Animation'),
+    ('Documentary'),
+    ('Family'),
+    ('Friendship'),
+    ('Romance'),
+    ('Fantasy'),
+    ('Science fiction'),
+    ('Thriller'),
+    ('Mystery'),
+    ('Biography'),
+    ('Musical'),
+    ('Religious');
 
 INSERT IGNORE INTO movie (id, title, poster_url, synopsis, director, duration, trailer_url, casts, producer) VALUES
 ('1', 'Surga di Bawah Langit',
@@ -233,7 +241,7 @@ IGNORE INTO `schedule` (id, date, hour, movie_id, studio_id) VALUES
 
 
 INSERT
-IGNORE INTO genre_movies (movies_id, genre_id) VALUES
+IGNORE INTO genre_movies (movies_id, genres_id) VALUES
 ('1', '1'),
 ('1', '4'),
 ('1', '8'),

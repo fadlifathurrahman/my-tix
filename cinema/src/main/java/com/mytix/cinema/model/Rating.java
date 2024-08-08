@@ -1,64 +1,32 @@
 package com.mytix.cinema.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreRemove;
 import jakarta.persistence.PreUpdate;
 
 import lombok.Data;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Data
 @Entity
-public class Movie {
-
+public class Rating {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(nullable = false)
-    private String title;
+    private String rating;
 
     @Column(nullable = false)
-    private Integer duration;
-
-    @Column(nullable = false)
-    private String director;
-
-    @Column(nullable = false)
-    private String producer;
-
-    @Column(nullable = false)
-    private String casts;
-
-    @Column(nullable = false)
-    private String synopsis;
-
-    @Column(nullable = false)
-    private String posterUrl;
-
-    @Column(nullable = false)
-    private String trailerUrl;
-
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Rating rating;
+    private String description;
     
-    @ManyToMany(mappedBy = "movies")
-    @Column(nullable = false)
-    private List<Genre> genres;
-
     @Column(name = "created_at", nullable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime createdAt;
 
@@ -84,3 +52,4 @@ public class Movie {
         deletedAt = LocalDateTime.now();
     }
 }
+
