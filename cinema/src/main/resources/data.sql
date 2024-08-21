@@ -219,8 +219,6 @@ IGNORE INTO `seat` (`seat_number`, `studio_id`) VALUES
 ('E9', '3'),
 ('E10', '3');
 
-
-
 INSERT
 IGNORE INTO `schedule` (date, hour, movie_id, studio_id) VALUES
     ('2023-04-20', '10:00:00', '1', '1'),
@@ -238,7 +236,6 @@ IGNORE INTO `schedule` (date, hour, movie_id, studio_id) VALUES
     ('2023-04-20', '16:00:00', '5', '3'),
     ('2023-04-20', '19:00:00', '6', '3'),
     ('2023-04-20', '21:00:00', '7', '3');
-
 
 INSERT
 IGNORE INTO genre_movies (movies_id, genres_id) VALUES
