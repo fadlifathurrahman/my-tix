@@ -33,7 +33,7 @@ public class GenreController {
     @GetMapping("/find-all")
     public ResponseEntity<List<Genre>> findAll() {
 
-        List<Genre> genres = genreRepository.findAll();
+        List<Genre> genres = genreRepository.findAllNotDeleted();
         return ResponseEntity.ok(genres);
     }
 
